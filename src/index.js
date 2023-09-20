@@ -9,12 +9,11 @@ const botonReset = document.getElementById("reset-button")
 
 textArea.addEventListener("input", () => {
     const resultadoPalabras = analyzer.getWordCount(textArea.value);
-    output1.innerHTML = "Palabras " + resultadoPalabras ;
+    output1.innerHTML = "Palabras: " + resultadoPalabras ;
 
   }); 
 
 botonReset.addEventListener("click", () => {
-    console.log(textArea.value);
     textArea.value = " ";
-    output1.innerHTML = "Palabras ";
+    output1.innerHTML = "Palabras: ";
 }) 
