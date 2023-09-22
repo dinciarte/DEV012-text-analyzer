@@ -3,8 +3,8 @@ import analyzer from './analyzer.js';
 
 //TODO: escuchar eventos del DOM e invocar  los métodos del objeto `analyzer`
 
-const output1 = document.querySelector(".li-contador");
-const output2 = document.querySelector(".mi-output2") 
+const output1 = document.querySelector("ul>li:nth-child(1)")
+const output2 = document.querySelector("ul>li:nth-child(2)") 
 const textArea = document.querySelector("textarea");
 const botonReset = document.getElementById("reset-button")
 
