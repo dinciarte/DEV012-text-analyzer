@@ -25,9 +25,9 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #222222;  
+  background-color: #003785;  
   border-radius: 10px;
-  color: #eeeeee;
+  color: #ffffff;
   box-shadow: 10px 10px 5px #aaaaaa;
 
 }
@@ -39,7 +39,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #333333;
+  background-color: #003785;
   justify-content: space-evenly;
   border-radius: 10px;
   margin: auto;
@@ -55,7 +55,6 @@ ul {
   align-items: center;
   justify-content: space-evenly;  
   list-style: none;
-  background-color: #333333;
   flex-wrap: wrap;  
   border-radius: 10px ;
   padding: 10px;
@@ -69,7 +68,8 @@ ul {
   padding: 10px;
   border-radius: 5px;
   margin: 10px;
-  background-color: #bbbbbb;
+  background-color: #2196f3;
+  color: #ffffff;
   font-size: 15px;
   font-weight: 600;
 }
@@ -91,12 +91,12 @@ textarea[name="user-input"]:active{
 }
 
 #reset-button {
-  width: 150px;
+  width: 200px;
   height: 60px;
   font-size: 18px;
   padding: 10px 20px;
-  background-color: #222222;
-  color: #eeeeee;
+  background-color: #81c9fa;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -104,11 +104,11 @@ textarea[name="user-input"]:active{
 }
 
 #reset-button:hover{
-  background-color: #777777;
+  background-color: #8bc9fc;
 }
 
 #reset-button:active{
-  background-color: #bbbbbb;
+  background-color: #b9ffff;
   color: #111111;
 }
 
