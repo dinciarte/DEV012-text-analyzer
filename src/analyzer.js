@@ -23,7 +23,7 @@ const analyzer = {
     if (text === "") {
       return 0;
     } else {
-      const regex = /[a-zA-Z0-9]/g;
+      const regex = (/[^\w]/g, '');
       const caracteresSinEspacio = text.match(regex) || [].length;
       return caracteresSinEspacio.length;
     }
@@ -49,20 +49,38 @@ const analyzer = {
       return longituPromedioPalabrasRedondeadas;
     }
   },
-  //   getNumberCount: (text) => {
-  //     TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
-  //   },
+     getNumberCount: (text) => {
+
+      if(text === ""){
+        return 0;
+      } else {  
+        const regexNum = /\d+/g;
+        const numerosEncontrados = text.match(regexNum);
+        if(numerosEncontrados) {
+          return numerosEncontrados.length;
+        } else {  
+          return 0;
+        }
+
+      }
+      
+  },
   getNumberSum: (text) => {
+
+    if (text === ""){
+      return 0;
+    } else {
       let suma = 0;
       const numerosArray = text.split(' ');
       for (let i = 0; i < numerosArray.length; i++) {
         const numero = parseFloat(numerosArray[i]);
-        if (typeof numero === 'number') {
+        if (!isNaN(numero)) {
           suma += numero;
         }
       }
-      return "Números: " + " " + suma ; 
+      return suma; 
     }
+  }
 };
 
 export default analyzer;
