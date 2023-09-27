@@ -23,7 +23,7 @@ const analyzer = {
     if (text === "") {
       return 0;
     } else {
-      const regex = (/[^\w]/g, '');
+      const regex = /[a-zA-Z0-9]/g;
       const caracteresSinEspacio = text.match(regex) || [].length;
       return caracteresSinEspacio.length;
     }
@@ -71,7 +71,7 @@ const analyzer = {
       return 0;
     } else {
       let suma = 0;
-      const numerosArray = text.split(' ');
+      const numerosArray = text.split(" ");
       for (let i = 0; i < numerosArray.length; i++) {
         const numero = parseFloat(numerosArray[i]);
         if (!isNaN(numero)) {
