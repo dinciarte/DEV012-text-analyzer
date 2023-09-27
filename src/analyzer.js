@@ -31,22 +31,19 @@ const analyzer = {
 
   getAverageWordLength: (text) => {
     const palabrasCadena = text.split(" ");
-    const palabrasValidas = palabrasCadena.filter(
-      (palabraCadena) => palabraCadena.trim().length > 0
-    );
-
+    const palabrasValidas = palabrasCadena.filter((palabraCadena) => palabraCadena.trim().length > 0);
+  
     if (palabrasValidas.length === 0) {
       return 0;
     } else {
-      const longitudPalabras = palabrasValidas.reduce(
-        (sumaPalabra, palabraCadena) => sumaPalabra + palabraCadena.length,
-        0
-      );
-      const longituPromedioPalabras = longitudPalabras / palabrasValidas.length;
-      const longituPromedioPalabrasRedondeadas = parseFloat(
-        longituPromedioPalabras
-      ).toFixed(2);
-      return longituPromedioPalabrasRedondeadas;
+      let sumaPalabras = 0;
+      for (let i = 0; i < palabrasValidas.length; i++) {
+        const palabraCadena = palabrasValidas[i];
+        sumaPalabras += palabraCadena.length;
+      }
+      const palabrasRedondeadas = sumaPalabras / palabrasValidas.length;
+
+      return parseFloat(palabrasRedondeadas.toFixed(2));
     }
   },
      getNumberCount: (text) => {
@@ -54,7 +51,7 @@ const analyzer = {
       if(text === ""){
         return 0;
       } else {  
-        const regexNum = /\d+/g;
+        const regexNum = /\b\d+(\.\d+)?\b/g;
         const numerosEncontrados = text.match(regexNum);
         if(numerosEncontrados) {
           return numerosEncontrados.length;
@@ -70,17 +67,18 @@ const analyzer = {
     if (text === ""){
       return 0;
     } else {
+      const regexSuma = /\b\d+(\.\d+)?\b/g;
+      const sumaNumeros = text.match(regexSuma);
       let suma = 0;
-      const numerosArray = text.split(" ");
-      for (let i = 0; i < numerosArray.length; i++) {
-        const numero = parseFloat(numerosArray[i]);
-        if (!isNaN(numero)) {
-          suma += numero;
-        }
+      if (sumaNumeros === null) {
+        return 0;
       }
-      return suma; 
+      for (let i = 0; i < sumaNumeros.length; i++) {
+        suma += parseFloat(sumaNumeros[i])
+      }
+      return suma
     }
-  }
+  }     
 };
 
 export default analyzer;
